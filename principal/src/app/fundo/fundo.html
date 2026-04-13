@@ -1,1 +1,25 @@
-<body class="bg-linear-to-r from-black from-55% to-yellow-500"></body>
+<body class="min-h-screen bg-black">
+
+  <!-- Fundo principal -->
+  <div class="relative min-h-screen overflow-hidden">
+
+    <!-- Gradiente base -->
+    <div class="absolute inset-0 bg-linear-to-r from-black via-[#1a1a1a] to-yellow-500"></div>
+
+    <!-- Camada de suavização -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Glow dourado -->
+    <div class="absolute top-0 right-0 w-125 h-125 bg-yellow-400 rounded-full blur-3xl opacity-40 animate-[glow_6s_infinite]"></div>
+
+    <!-- Glow secundário -->
+    <div class="absolute bottom-0 left-0 w-100 h-100 bg-yellow-600 rounded-full blur-3xl opacity-30"></div>
+
+    <!-- Conteúdo -->
+    <div class="relative z-10 flex items-center justify-center min-h-screen text-white">
+      <h1 class="text-4xl font-bold">
+        PrimeLine <span class="text-yellow-400">Auto</span>
+      </h1>
+    </div>
+
+  </div>
