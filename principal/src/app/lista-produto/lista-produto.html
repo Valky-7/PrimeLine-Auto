@@ -23,7 +23,7 @@
         <div class="p-8 text-center">
           <h3 class="font-serif text-xl text-white mb-2 tracking-tight">{{ p.nome }}</h3>
           <p class="text-[#c5a059] text-2xl font-light mb-6">
-            R$ {{ p.preco | currency: 'BRL' }}
+            {{ p.preco | currency: 'BRL' }}
           </p>
 
           <button
