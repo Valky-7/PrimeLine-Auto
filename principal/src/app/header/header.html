@@ -1,15 +1,66 @@
-<header class="bg-black text-white shadow-lg">
-    <div class="navbar container mx-auto px-6 py-6 flex justify-between items-center">
-        <div class="logo text-3xl font-extrabold">PrimeLine <span class="text-amber-400">Auto</span></div>
-        <ul class="nav-links flex space-x-6 font-sans">
-            <li class="hover:text-gray-400"><a href="#">Início</a></li>
-            <li class="hover:text-gray-400"><a href="#">Catálogo</a></li>
-            <li class="hover:text-gray-400"><a href="#">Promoções</a></li>
-            <li class="hover:text-gray-400"><a href="#">Contato</a></li>
-        </ul>
-        <button class="cart-btn" onclick="toggleCart ()">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </button>
+<header class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-[#c5a059]/20 z-50">
+  <nav class="max-w-350 mx-auto px-8 py-5 flex justify-between items-center">
+    <div class="flex items-center gap-2 cursor-pointer">
+      <h1 class="font-serif text-3xl font-black tracking-tighter text-white uppercase">
+        PrimeLine <span class="text-[#c5a059]">Auto</span>
+      </h1>
     </div>
-</header>   
+
+    <ul class="hidden md:flex items-center gap-10">
+      <li>
+        <a
+          href="#"
+          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
+          >Início</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
+          >Catálogo</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
+          >Promoções</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
+          >Contato</a
+        >
+      </li>
+    </ul>
+
+    <div class="relative cursor-pointer group">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="text-[#c5a059] group-hover:scale-110 transition-transform"
+      >
+        <circle cx="8" cy="21" r="1" />
+        <circle cx="19" cy="21" r="1" />
+        <path
+          d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+        />
+      </svg>
+      <span
+        class="absolute -top-2 -right-3 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center"
+      >
+        0
+      </span>
+    </div>
+  </nav>
+</header>
