@@ -4,10 +4,11 @@ import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { Home } from './home/home';
 import { Catalogo } from './catalogo/catalogo';
+import { Promocoes } from './promocoes/promocoes';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, Home, Catalogo],
+  imports: [RouterOutlet, Header, Footer, Home, Catalogo, Promocoes],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
