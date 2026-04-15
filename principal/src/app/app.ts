@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { Home } from './home/home';
-import { ListaProduto } from './lista-produto/lista-produto';
+import { Catalogo } from './catalogo/catalogo';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, Home, ListaProduto],
+  imports: [RouterOutlet, Header, Footer, Home, Catalogo],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

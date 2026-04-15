@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-lista-produto',
+  selector: 'app-catalogo',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './lista-produto.html',
-  styleUrl: './lista-produto.css',
+  templateUrl: './catalogo.html',
+  styleUrl: './catalogo.css',
 })
-export class ListaProduto {
+export class Catalogo {
   produtos = [
     { id: 1, nome: 'Kit Freios Brembo', preco: 1899.90, img: 'imagens/freio.png' },
     { id: 2, nome: 'Amortecedores KYB', preco: 1249.90, img: 'imagens/amortecedor.jpg' },
