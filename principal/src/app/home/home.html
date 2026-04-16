@@ -1,6 +1,6 @@
 <section id="inicio" class="h-screen w-full relative flex items-center bg-black bg-cover bg-center bg-no-repeat"
          style="background-image: linear-gradient(to right, rgba(0,0,0,0.95) 35%, transparent 100%), 
-                                  url('imagens/fundo.jpg');">
+                url('imagens/fundo.jpg');">
   
   <div class="max-w-350 mx-auto w-full px-8 md:px-20 z-10 flex flex-col items-start gap-4">
     
@@ -12,13 +12,12 @@
       PEÇAS PREMIUM. DESEMPENHO REAL.
     </p>
 
-    <a href="#catalogo"
-       class="mt-8 bg-[#c5a059] hover:bg-white text-black font-bold uppercase text-xs md:text-sm tracking-[0.3em] px-12 py-5 transition-colors duration-300 inline-block text-center">
+    <button type="button" (click)="scrollTo('catalogo')"
+       class="mt-8 bg-[#c5a059] hover:bg-white text-black font-bold uppercase text-xs md:text-sm tracking-[0.3em] px-12 py-5 transition-colors duration-300 inline-block text-center cursor-pointer border-none">
        EXPLORAR CATÁLOGO
-    </a>
+    </button>
 
   </div>
 
   <div class="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-black to-transparent"></div>
-
 </section>

@@ -1,6 +1,6 @@
 <header class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-[#c5a059]/20 z-50">
   <nav class="max-w-350 mx-auto px-8 py-5 flex justify-between items-center">
-    <div class="flex items-center gap-2 cursor-pointer">
+    <div class="flex items-center gap-2 cursor-pointer" (click)="scrollTo('inicio')">
       <h1 class="font-serif text-3xl font-black tracking-tighter text-white uppercase">
         PrimeLine <span class="text-[#c5a059]">Auto</span>
       </h1>
@@ -8,41 +8,38 @@
 
     <ul class="hidden md:flex items-center gap-10">
       <li>
-        <a
-          href="#inicio"
-          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
-          >Início</a
-        >
+        <a (click)="scrollTo('inicio', $event)"
+           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
+           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
+           Início
+        </a>
       </li>
       <li>
-        <a
-          href="#catalogo"
-          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
-          >Catálogo</a
-        >
+        <a (click)="scrollTo('catalogo', $event)"
+           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
+           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
+           Catálogo
+        </a>
       </li>
       <li>
-        <a
-          href="#promocoes"
-          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
-          >Promoções</a
-        >
+        <a (click)="scrollTo('promocoes', $event)"
+           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
+           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
+           Promoções
+        </a>
       </li>
       <li>
-        <a
-          href="#contato"
-          class="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-[#c5a059] transition-colors"
-          >Contato</a
-        >
+        <a (click)="scrollTo('contato', $event)"
+           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
+           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
+           Contato
+        </a>
       </li>
     </ul>
 
     <div class="relative cursor-pointer group">
-      <i class="fa-solid fa-cart-arrow-down text-[#c5a059] text-2x1 group-hover:scale-110 transition-transform"></i>
-
-      <span
-        class="absolute -top-2 -right-3 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center"
-      >
+      <i class="fa-solid fa-cart-arrow-down text-[#c5a059] text-2xl group-hover:scale-110 transition-transform"></i>
+      <span class="absolute -top-2 -right-3 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
         0
       </span>
     </div>

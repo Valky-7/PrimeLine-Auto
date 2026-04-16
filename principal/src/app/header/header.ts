@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
   standalone: true,
   styleUrl: './header.css',
@@ -13,5 +15,21 @@ export class Header {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+  }
+
+  scrollTo(id: string, event: Event) {
+  event.preventDefault(); 
+  
+  const element = document.getElementById(id);
+  if (element) {
+    const headerOffset = 90;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
 }
 }
