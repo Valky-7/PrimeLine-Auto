@@ -11,8 +11,10 @@ import { CommonModule } from '@angular/common';
 export class Home {
 
   
-  scrollTo(id: string, event: Event) {
-  event.preventDefault(); 
+  scrollTo(id: string, event?: Event) {
+    if (event) {
+      event.preventDefault(); 
+    }
   
   const element = document.getElementById(id);
   if (element) {

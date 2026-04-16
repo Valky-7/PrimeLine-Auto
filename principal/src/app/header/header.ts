@@ -17,8 +17,10 @@ export class Header {
     this.isScrolled = window.scrollY > 50;
   }
 
-  scrollTo(id: string, event: Event) {
-  event.preventDefault(); 
+  scrollTo(id: string, event?: Event) {
+    if (event) {
+      event.preventDefault(); 
+    }
   
   const element = document.getElementById(id);
   if (element) {

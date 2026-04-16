@@ -1,1 +1,58 @@
-<p>contato works!</p>
+<section id="contato" class="py-24 bg-black">
+  <div class="max-w-350 mx-auto px-8 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
+    
+    <div class="flex flex-col justify-center gap-8">
+      <div>
+        <span class="text-[#c5a059] text-xs uppercase tracking-[0.3em] font-bold">Atendimento</span>
+        <h2 class="font-serif text-4xl md:text-5xl text-white font-bold tracking-tighter mt-2">Fale Conosco</h2>
+        <p class="text-gray-400 mt-6 max-w-md leading-relaxed">
+          Nossa equipe de especialistas está pronta para ajudar você a encontrar a melhor performance para o seu veículo.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 border border-[#c5a059]/30 flex items-center justify-center text-[#c5a059]">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <p class="text-white text-sm font-bold uppercase tracking-widest">Localização</p>
+            <p class="text-gray-500 text-sm">Rio do Sul, SC • Brasil</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 border border-[#c5a059]/30 flex items-center justify-center text-[#c5a059]">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <p class="text-white text-sm font-bold uppercase tracking-widest">Telefone</p>
+            <p class="text-gray-500 text-sm">(47) 9999-9999</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="bg-[#0a0a0a] border border-[#c5a059]/20 p-10 flex flex-col gap-6">
+      <div class="flex flex-col gap-2">
+        <label class="text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">Nome Completo</label>
+        <input type="text" class="bg-black border border-white/10 p-4 text-white focus:border-[#c5a059] outline-none transition-colors">
+      </div>
+      
+      <div class="flex flex-col gap-2">
+        <label class="text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">E-mail</label>
+        <input type="email" class="bg-black border border-white/10 p-4 text-white focus:border-[#c5a059] outline-none transition-colors">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">Mensagem</label>
+        <textarea rows="4" class="bg-black border border-white/10 p-4 text-white focus:border-[#c5a059] outline-none transition-colors"></textarea>
+      </div>
+
+      <button type="submit" class="bg-[#c5a059] hover:bg-white text-black font-bold uppercase text-xs tracking-[0.3em] py-5 transition-all duration-300 mt-4">
+        ENVIAR MENSAGEM
+      </button>
+    </form>
+
+  </div>
+</section>
