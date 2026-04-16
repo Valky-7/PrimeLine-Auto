@@ -11,10 +11,15 @@ import { RouterLink } from '@angular/router';
 })
 export class Header {
   isScrolled = false;
+  isCartOpen = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+  }
+
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
   }
 
   scrollTo(id: string, event?: Event) {
@@ -32,6 +37,9 @@ export class Header {
       top: offsetPosition,
       behavior: 'smooth'
     });
+
+    this.isCartOpen = false;
+
   }
 }
 }
