@@ -14,15 +14,17 @@ export interface Produto {
 export class CartService {
   private items: Produto[] = [];
   private cartSubject = new BehaviorSubject<Produto[]>([]);
-  
-  // Observable para os componentes "ouvirem" as mudanças
+
   cartItems$ = this.cartSubject.asObservable();
 
   addToCart(product: Produto) {
     this.items.push(product);
-    this.cartSubject.next([...this.items]); // Emite nova lista
+    this.cartSubject.next([...this.items]);
   }
-
+  removeItem(id: number) {
+    this.items = this.items.filter(item => item.id !== id);
+    this.cartSubject.next([...this.items]);
+  }
   getTotal(): number {
     return this.items.reduce((total, p) => total + p.preco, 0);
   }
