@@ -1,6 +1,5 @@
 <header class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-[#c5a059]/20 z-50">
-  <nav class="max-w-[1400px] mx-auto px-8 py-5 flex justify-between items-center">
-    
+  <nav class="max-w-350px mx-auto px-8 py-5 flex justify-between items-center">
     <div class="flex items-center gap-2 cursor-pointer" (click)="scrollTo('inicio', $event)">
       <h1 class="font-serif text-3xl font-black tracking-tighter text-white uppercase">
         PrimeLine <span class="text-[#c5a059]">Auto</span>
@@ -8,80 +7,50 @@
     </div>
 
     <ul class="hidden md:flex items-center gap-10">
-      <li>
-        <a (click)="scrollTo('inicio', $event)"
-           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
-           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
-           Início
-        </a>
-      </li>
-      <li>
-        <a (click)="scrollTo('catalogo', $event)"
-           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
-           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
-           Catálogo
-        </a>
-      </li>
-      <li>
-        <a (click)="scrollTo('promocoes', $event)"
-           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
-           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
-           Promoções
-        </a>
-      </li>
-      <li>
-        <a (click)="scrollTo('contato', $event)"
-           class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer"
-           [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">
-           Contato
-        </a>
-      </li>
+      <li><a (click)="scrollTo('inicio', $event)" class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer" [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">Início</a></li>
+      <li><a (click)="scrollTo('catalogo', $event)" class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer" [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">Catálogo</a></li>
+      <li><a (click)="scrollTo('promocoes', $event)" class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer" [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">Promoções</a></li>
+      <li><a (click)="scrollTo('contato', $event)" class="text-xs uppercase tracking-[0.2em] transition-colors cursor-pointer" [ngClass]="isScrolled ? 'text-gray-400 hover:text-[#c5a059]' : 'text-white hover:text-[#c5a059]'">Contato</a></li>
     </ul>
 
     <div class="relative cursor-pointer group" (click)="toggleCart()">
       <i class="fa-solid fa-cart-arrow-down text-[#c5a059] text-2xl group-hover:scale-110 transition-transform"></i>
       <span class="absolute -top-2 -right-3 bg-white text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-        0
+        {{ (cartService.cartItems$ | async)?.length || 0 }}
       </span>
     </div>
   </nav>
-</header> <div *ngIf="isCartOpen" class="fixed inset-0 z-[100] flex items-center justify-center px-4">
-  
-  <div class="absolute inset-0 bg-black/80 backdrop-blur-md" (click)="toggleCart()"></div>
+</header>
 
+<div *ngIf="isCartOpen" class="fixed inset-0 z-100 flex items-center justify-center px-4">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md" (click)="toggleCart()"></div>
   <div class="relative bg-[#0a0a0a] border border-[#c5a059]/30 w-full max-w-lg p-8 shadow-[0_0_50px_rgba(197,160,89,0.2)] transition-all">
-    
     <button (click)="toggleCart()" class="absolute top-4 right-4 text-gray-500 hover:text-[#c5a059] transition-colors">
       <i class="fa-solid fa-xmark text-xl"></i>
     </button>
-
     <div class="flex flex-col gap-8">
       <div class="text-center border-b border-[#c5a059]/10 pb-4">
-        <h2 class="font-serif text-3xl text-white uppercase tracking-tighter">
-          Seu <span class="text-[#c5a059]">Carrinho</span>
-        </h2>
+        <h2 class="font-serif text-3xl text-white uppercase tracking-tighter">Seu <span class="text-[#c5a059]">Carrinho</span></h2>
       </div>
 
-      <div class="py-12 flex flex-col items-center gap-4">
-        <div class="w-20 h-20 border border-[#c5a059]/20 rounded-full flex items-center justify-center opacity-20">
+      <div class="py-4 flex flex-col items-center gap-4 max-h-300px overflow-y-auto">
+        <div *ngIf="(cartService.cartItems$ | async)?.length === 0" class="flex flex-col items-center gap-4 opacity-20">
             <i class="fa-solid fa-shopping-bag text-3xl text-[#c5a059]"></i>
+            <p class="text-gray-500 uppercase text-[10px] tracking-[0.3em]">Nenhum item selecionado</p>
         </div>
-        <p class="text-gray-500 uppercase text-[10px] tracking-[0.3em]">Nenhum item selecionado</p>
+        <div *ngFor="let item of (cartService.cartItems$ | async)" class="w-full flex justify-between text-white text-sm py-2">
+            <span>{{ item.nome }}</span>
+            <span class="text-[#c5a059]">{{ item.preco | currency: 'BRL' }}</span>
+        </div>
       </div>
 
       <div class="flex flex-col gap-4">
         <div class="flex justify-between items-center text-xs uppercase tracking-widest text-white">
           <span>Subtotal</span>
-          <span class="text-[#c5a059] font-bold">R$ 0,00</span>
+          <span class="text-[#c5a059] font-bold">{{ cartService.getTotal() | currency: 'BRL' }}</span>
         </div>
-        
-        <button class="w-full bg-[#c5a059] hover:bg-white text-black font-bold py-4 uppercase text-xs tracking-[0.2em] transition-all duration-300">
-          Finalizar Compra
-        </button>
-        
-        <button (click)="toggleCart()" class="text-gray-500 hover:text-white text-[9px] uppercase tracking-widest transition-colors mt-2">
-          Voltar para a loja
-        </button>
+        <button class="w-full bg-[#c5a059] hover:bg-white text-black font-bold py-4 uppercase text-xs tracking-[0.2em] transition-all duration-300">Finalizar Compra</button>
+        <button (click)="toggleCart()" class="text-gray-500 hover:text-white text-[9px] uppercase tracking-widest transition-colors mt-2">Voltar para a loja</button>
       </div>
     </div>
   </div>

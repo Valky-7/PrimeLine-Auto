@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from './../services/cart.service'; 
 
 @Component({
   selector: 'app-catalogo',
@@ -9,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './catalogo.css',
 })
 export class Catalogo {
+
+  constructor(public cartService: CartService) {}
+
   produtos = [
     { id: 1, nome: 'Kit Freios Brembo', preco: 1899.90, img: 'imagens/freio.png' },
     { id: 2, nome: 'Amortecedores KYB', preco: 1249.90, img: 'imagens/amortecedor.jpg' },

@@ -1,17 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CartService } from './../services/cart.service'; 
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
-  standalone: true,
   styleUrl: './header.css',
 })
 export class Header {
   isScrolled = false;
   isCartOpen = false;
+
+  constructor(public cartService: CartService) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -27,19 +30,18 @@ export class Header {
       event.preventDefault(); 
     }
   
-  const element = document.getElementById(id);
-  if (element) {
-    const headerOffset = 90;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 90;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
 
-    this.isCartOpen = false;
-
+      this.isCartOpen = false;
+    }
   }
-}
 }
