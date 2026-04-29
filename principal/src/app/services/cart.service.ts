@@ -24,7 +24,7 @@ export class CartService {
   removeItem(id: number) {
     const index = this.items.findIndex(item => item.id === id);
 
-    if (index !== 1) {
+    if (index !== -1) {
       this.items.splice(index, 1);
       this.cartSubject.next([...this.items]);
 
@@ -33,7 +33,7 @@ export class CartService {
   clearCart() {
     this.items = [];
     this.cartSubject.next([]);
-    
+
   }
 
   getTotal(): number {
