@@ -71,7 +71,7 @@
           <span>Subtotal</span>
           <span class="text-[#c5a059] font-bold">{{ cartService.getTotal() | currency: 'BRL' }}</span>
         </div>
-        <button
+        <button (click)="cartService.clearCart()"
           class="w-full bg-[#c5a059] hover:bg-white text-black font-bold py-4 uppercase text-xs tracking-[0.2em] transition-all duration-300">Finalizar
           Compra</button>
         <button (click)="toggleCart()"

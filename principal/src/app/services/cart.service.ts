@@ -22,9 +22,20 @@ export class CartService {
     this.cartSubject.next([...this.items]);
   }
   removeItem(id: number) {
-    this.items = this.items.filter(item => item.id !== id);
-    this.cartSubject.next([...this.items]);
+    const index = this.items.findIndex(item => item.id === id);
+
+    if (index !== 1) {
+      this.items.splice(index, 1);
+      this.cartSubject.next([...this.items]);
+
+    }
   }
+  clearCart() {
+    this.items = [];
+    this.cartSubject.next([]);
+    
+  }
+
   getTotal(): number {
     return this.items.reduce((total, p) => total + p.preco, 0);
   }
