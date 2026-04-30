@@ -39,7 +39,7 @@ O sistema deve permitir que o usuario:
 - Remova apenas uma unidade especifica do produto no carrinho.
 - Visualize o subtotal da compra.
 - Finalize a compra limpando os itens do carrinho.
-- Consulte promocoes e destaques da semana.
+- Consulte promocoes e destaques da semana.  
 - Acesse informacoes de contato da empresa.
 - Preencha um formulario com nome, e-mail e mensagem.
 
